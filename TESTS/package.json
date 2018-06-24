@@ -1,0 +1,18 @@
+{
+    "scripts": {
+        "test": "jest"
+    },
+    "jest": {
+        "globals": {
+            "nodelist": {
+                "foo": "bar"
+            },
+            "msg": {
+                "payload": "default"
+            },
+            "status": "",
+            "statustext": "init"
+        }
+    },
+    "automock": true
+}

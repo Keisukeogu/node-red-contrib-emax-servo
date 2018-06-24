@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ES80A',{
+        category: 'output',
+        color: '#89c3eb',
+        defaults: {
+            gpioPin: {value: "",validate:RED.validators.number()},
+            angle: {value:"0", validate:RED.validators.number()},
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "serial.png",
+        label: function() {
+            return this.name||"ES80A";
+        },
+});
+</script>
+
+<script type="text/x-red" data-template-name="ES80A">
+    <div class="form-row">
+        <label for="node-input-gpioPin"><i class="fa fa-cog"></i> gpioPin</label>
+        <input type="text" id="node-input-gpioPin" value="0">
+    </div>
+    <div class="form-row">
+        <label for="node-input-angle"><i class="a fa-arrow-up"></i> angle</label>
+        <input type="text" id="node-input-angle" value="0">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ES80A">
+    <p>Read the card ID (Mifare: UID, FeliCa: IDm) with nfcpy-id (a Python module).</p>
+    <p>Before using, install <code>nfcpy-id</code>(a Python module).</p>
+    <p>This node can't catch touchend event.</p>
+    <p><code>waitTime</code> is restart timing after touched nfcCard.</p>
+    <p><code>type</code>'s list
+        <ul>
+            <li>Type 2 -- MIFARE</li>
+            <li>Type 3 -- FeliCa</li>
+            <li>Type 4 -- MIFARE DESFire</li>
+        </ul>
+    </p>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+    <dt>payload
+        <span class="property-type">Card Id | string</span>
+    </dt>
+    <dt>type
+        <span class="property-type">Card Type| string</span>
+    </dt>
+    <dt>timestamp
+        <span class="property-type">timestamp | int </span>
+    </dt>
+</script>

@@ -1,0 +1,33 @@
+{
+  "name": "node-red-contrib-es80a",
+  "version": "1.0.0",
+  "description": "this is node-red's node. control es80a(servo motor) on raspberrypi.",
+  "main": "es80a.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-harada413/node-red-contrib-es80a.git"
+  },
+  "node-red": {
+    "nodes": {
+      "es80a": "es80a.js"
+    }
+  },
+  "keywords": [
+    "node-red",
+    "servo",
+    "es80a",
+    "raspberryPi"
+  ],
+  "dependencies": {
+    "pigpio": "^1.1.0"
+  },
+  "author": "k-harada413",
+  "license": "Apache2.0",
+  "bugs": {
+    "url": "https://github.com/k-harada413/node-red-contrib-es80a/issues"
+  },
+  "homepage": "https://github.com/k-harada413/node-red-contrib-es80a#readme"
+}
