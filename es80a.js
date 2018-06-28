@@ -3,7 +3,8 @@ module.exports = function(RED) {
     function es80aNode(n) {
         RED.nodes.createNode(this,n);
         this.gpioPin = Number(n.gpioPin);
-        this.angle = (n.angle * 10 ) + 600;
+        console.log(n.angle);
+        this.angle = (Number(n.angle) * 10 ) + 600;
         var node = this;
         console.log("angle is " + this.angle + ",pin is" + node.gpioPin);
         var Gpio = require('pigpio').Gpio,
