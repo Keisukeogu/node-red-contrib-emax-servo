@@ -5,6 +5,7 @@ module.exports = function(RED) {
         this.gpioPin = Number(n.gpioPin);
         this.angle = (Number(n.angle) * 10 ) + 600;
         var node = this;
+
         var Gpio = require('pigpio').Gpio,
         motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
         pulseWidth = node.angle;
@@ -14,11 +15,11 @@ module.exports = function(RED) {
                 motor.servoWrite(pulseWidth);
             };
 
-            move_servo;
+            move_servo();
 
             function start_servo(){
                setInterval(function(){
-                    move_servo;
+                    move_servo();
                 },1000);
             }
 
@@ -33,7 +34,7 @@ module.exports = function(RED) {
         });
     
         node.on('close',function(){
-            servo_stop;
+            //servo_stop;
         });
     }
     RED.nodes.registerType("ES80A",es80aNode);
