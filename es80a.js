@@ -5,11 +5,12 @@ module.exports = function(RED) {
         this.gpioPin = Number(n.gpioPin);
         this.angle = (n.angle * 10 ) + 600;
         var node = this;
+        var Gpio = require('pigpio').Gpio,
+        motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
+        pulseWidth = node.angle;
 
         node.on('input', function (msg) {
-            var Gpio = require('pigpio').Gpio,
-            motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
-            pulseWidth = node.angle;
+
 
             var move_servo = function(){
                 motor.servoWrite(angle);
