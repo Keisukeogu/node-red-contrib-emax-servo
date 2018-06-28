@@ -3,11 +3,8 @@ module.exports = function(RED) {
     function es80aNode(n) {
         RED.nodes.createNode(this,n);
         this.gpioPin = Number(n.gpioPin);
-        console.log("hoge");
-        console.log(n.angle);
         this.angle = (Number(n.angle) * 10 ) + 600;
         var node = this;
-        console.log("angle is " + this.angle + ",pin is" + node.gpioPin);
         var Gpio = require('pigpio').Gpio,
         motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
         pulseWidth = node.angle;
@@ -21,7 +18,7 @@ module.exports = function(RED) {
 
             function start_servo(){
                setInterval(function(){
-                    move.servo;
+                    move_servo();
                 },1000);
             }
 
