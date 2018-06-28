@@ -3,6 +3,7 @@ module.exports = function(RED) {
     function es80aNode(n) {
         RED.nodes.createNode(this,n);
         this.gpioPin = Number(n.gpioPin);
+        console.log("hoge");
         console.log(n.angle);
         this.angle = (Number(n.angle) * 10 ) + 600;
         var node = this;
@@ -13,7 +14,7 @@ module.exports = function(RED) {
 
         node.on('input', function (msg) {
             var move_servo = function(){
-                motor.servoWrite(angle);
+                motor.servoWrite(pulseWidth);
             };
 
             move_servo();
