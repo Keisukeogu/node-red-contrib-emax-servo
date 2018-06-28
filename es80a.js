@@ -34,7 +34,7 @@ module.exports = function(RED) {
         });
     
         node.on('close',function(){
-            nfc.pause();
+            //nfc.pause();
         });
     }
     RED.nodes.registerType("ES80A",es80aNode);
