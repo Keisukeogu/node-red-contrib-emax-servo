@@ -23,17 +23,17 @@ module.exports = function(RED) {
             }
 
             var servo_stop = function(){
-                clearInterval(move_servo);
+                clearInterval(move_servo());
             }
 
             start_servo();
 
-            setTimeout(servo_stop,2000);
+            setTimeout(servo_stop(),2000);
             node.send(msg);
         });
     
         node.on('close',function(){
-            //nfc.pause();
+            servo_stop();
         });
     }
     RED.nodes.registerType("ES80A",es80aNode);
