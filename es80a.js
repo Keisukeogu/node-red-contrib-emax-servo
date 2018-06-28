@@ -14,26 +14,26 @@ module.exports = function(RED) {
                 motor.servoWrite(pulseWidth);
             };
 
-            move_servo();
+            move_servo;
 
             function start_servo(){
                setInterval(function(){
-                    move_servo();
+                    move_servo;
                 },1000);
             }
 
             var servo_stop = function(){
-                clearInterval(move_servo());
+                clearInterval(move_servo);
             }
 
             start_servo();
 
-            setTimeout(servo_stop(),2000);
+            setTimeout(servo_stop,2000);
             node.send(msg);
         });
     
         node.on('close',function(){
-            servo_stop();
+            servo_stop;
         });
     }
     RED.nodes.registerType("ES80A",es80aNode);
