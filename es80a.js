@@ -3,7 +3,7 @@ module.exports = function(RED) {
     function es80aNode(n) {
         RED.nodes.createNode(this,n);
         this.gpioPin = Number(n.gpioPin);
-        this.angle = (n.angle - 600) / 10;
+        this.angle = (n.angle * 10 ) + 600;
         var node = this;
 
         node.on('input', function (msg) {
