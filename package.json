@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-es80a",
+  "name": "node-red-contrib-es80a-servo",
   "version": "0.1.0",
   "description": "this is node-red's node. control es80a(servo motor) on raspberrypi.",
   "main": "es80a.js",
