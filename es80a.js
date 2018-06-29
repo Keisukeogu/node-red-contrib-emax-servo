@@ -12,26 +12,25 @@ module.exports = function(RED) {
         motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
         pulseWidth = node.angle;
 
+        var start = start_supply(motor,node.angle); // interval
 
     
         node.on('input', function (msg) {
             
-            var start = start_supply(motor,node.angle); // interval
-            
             move(motor,node.angle); //即時実行
-
             start;
             console.log('start');
 
             setTimeout(function(){
                 stop_supply(start);
                 node.send(msg);
-            },2000);
+            },1500);
             
         });
     
         node.on('close',function(){
             stop_supply(start);
+            Gpio = NULL;
         });
     }
     RED.nodes.registerType("ES80A",es80aNode);
