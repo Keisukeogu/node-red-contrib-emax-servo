@@ -16,12 +16,20 @@ module.exports = function(RED) {
         
         node.on('input', function (msg) {
 
-            var start = start_supply(motor,node.angle); // interval
-            
-            move(motor,node.angle); //即時実行
-            start;
-            console.log('start');
+            var timer;
 
+            function start_supply(_motor,_angle){
+                console.log("interval");
+                timer = setInterval(function(){
+                    move(_motor,_angle);
+                },1000);
+                return true;
+            }
+
+            move(motor,node.angle); //即時実行
+            console.log('start1');
+            start_supply(motor,node.angle);
+            
             setTimeout(function(){
                 stop_supply(timer);
                 node.send(msg);
@@ -31,19 +39,10 @@ module.exports = function(RED) {
     
         node.on('close',function(){
             stop_supply(timer);
-            Gpio = NULL;
         });
     }
     RED.nodes.registerType("ES80A",es80aNode);
 
-    function start_supply(_motor,_angle){
-        console.log("interval");
-        timer = setInterval(function(){
-            move(_motor,_angle);
-        },1000);
-        return true;
-    }
-    
     function stop_supply(func){
         console.log('stop');
         clearInterval(func);
