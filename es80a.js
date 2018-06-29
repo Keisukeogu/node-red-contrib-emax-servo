@@ -8,14 +8,16 @@ module.exports = function(RED) {
         console.log("gpioPin is " + this.gpioPin + " PWM is " +this.angle );
         var node = this;
 
-    
-        var Gpio = require('pigpio').Gpio,
-        motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
-        pulseWidth = node.angle;
-
-        console.log("init");
+       
 
         node.on('input', function (msg) {
+
+            var Gpio = require('pigpio').Gpio,
+            motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
+            pulseWidth = node.angle;
+
+            console.log("init");
+
             console.log("node.on");
             
             var start = start_supply(mortor,node.angle); // interval
