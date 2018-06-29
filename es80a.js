@@ -12,24 +12,22 @@ module.exports = function(RED) {
         motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
         pulseWidth = node.angle;
 
-        console.log("init");
 
     
         node.on('input', function (msg) {
-
-
-            console.log("node.on");
             
             var start = start_supply(motor,node.angle); // interval
             
             move(motor,node.angle); //即時実行
-            console.log("move_servo");
 
             start;
+            console.log('start');
 
-            setTimeout(stop_supply(start),2000);
-
-            node.send(msg);
+            setTimeout(function(){
+                stop_supply(start);
+                node.send(msg);
+            },2000);
+            
         });
     
         node.on('close',function(){
@@ -49,6 +47,7 @@ function start_supply(_motor,_angle){
 }
 
 function stop_supply(func){
+    console.log('stop');
     clearInterval(func);
     return true;
 }
