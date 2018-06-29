@@ -1,4 +1,4 @@
-# node-red-contrib-es80a
+# node-red-contrib-emax-servo
 A collection of [Node-RED](https://nodered.org) nodes for ES80A.
 This node doesn't touch msg object.
 
@@ -6,7 +6,7 @@ This node doesn't touch msg object.
 Run the following command in the root directory of your Node-RED install
 
 ```
-npm install node-red-contrib-es80a
+npm install node-red-contrib-emax-servo
 ```
 
 ## License
