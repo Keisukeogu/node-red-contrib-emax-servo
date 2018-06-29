@@ -20,7 +20,7 @@ module.exports = function(RED) {
 
             console.log("node.on");
             
-            var start = start_supply(mortor,node.angle); // interval
+            var start = start_supply(motor,node.angle); // interval
             
             move(motor,node.angle); //即時実行
             console.log("move_servo");
