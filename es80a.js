@@ -8,15 +8,15 @@ module.exports = function(RED) {
         console.log("gpioPin is " + this.gpioPin + " PWM is " +this.angle );
         var node = this;
 
-       
+        var Gpio = require('pigpio').Gpio,
+        motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
+        pulseWidth = node.angle;
 
+        console.log("init");
+
+    
         node.on('input', function (msg) {
 
-            var Gpio = require('pigpio').Gpio,
-            motor = new Gpio(node.gpioPin, {mode: Gpio.OUTPUT}),
-            pulseWidth = node.angle;
-
-            console.log("init");
 
             console.log("node.on");
             
@@ -27,7 +27,7 @@ module.exports = function(RED) {
 
             start;
 
-            setTimeout(stop_supply(start),start,2000);
+            setTimeout(stop_supply(start),2000);
 
             node.send(msg);
         });
@@ -54,6 +54,6 @@ function stop_supply(func){
 }
 
 function move(_motor,_angle){
-    motor.servoWrite(_angle);
+    _motor.servoWrite(_angle);
     return true;
 }
