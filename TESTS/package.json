@@ -11,7 +11,8 @@
                 "payload": "default"
             },
             "status": "",
-            "statustext": "init"
+            "statustext": "init",
+            "Gpio":""
         }
     },
     "automock": true

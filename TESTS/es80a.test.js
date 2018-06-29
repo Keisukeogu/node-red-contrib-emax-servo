@@ -18,6 +18,7 @@ var es80a_init = function () {
     };
 };
 
+/*
 describe('check properties', () => {
     test('is scl(PTE24) and sda(PTE25)', () => {
         var BME280 = new BME280_init();
@@ -35,3 +36,4 @@ describe('check properties', () => {
         expect(msg.payload.atmPressure).toBe(1013);
     });
 });
+*/

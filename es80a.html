@@ -32,26 +32,7 @@
 </script>
 
 <script type="text/x-red" data-help-name="ES80A">
-    <p>Read the card ID (Mifare: UID, FeliCa: IDm) with nfcpy-id (a Python module).</p>
-    <p>Before using, install <code>nfcpy-id</code>(a Python module).</p>
-    <p>This node can't catch touchend event.</p>
-    <p><code>waitTime</code> is restart timing after touched nfcCard.</p>
-    <p><code>type</code>'s list
-        <ul>
-            <li>Type 2 -- MIFARE</li>
-            <li>Type 3 -- FeliCa</li>
-            <li>Type 4 -- MIFARE DESFire</li>
-        </ul>
-    </p>
-    <h3>Outputs</h3>
-    <dl class="message-properties">
-    <dt>payload
-        <span class="property-type">Card Id | string</span>
-    </dt>
-    <dt>type
-        <span class="property-type">Card Type| string</span>
-    </dt>
-    <dt>timestamp
-        <span class="property-type">timestamp | int </span>
-    </dt>
+    <p>Run the ES80A(servo moror).</p>
+    <p>Input angle value(90 ~ 180)</p>
+    <p>This node doesn't touch msg object.</p>
 </script>
